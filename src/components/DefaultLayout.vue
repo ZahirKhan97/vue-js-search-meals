@@ -2,7 +2,9 @@
     <div class="bg-gray-100 h-full">
         <Navbar />
         <main class="container mx-auto flex items-center justify-between">
-            <router-view />
+            <div class="flex flex-col gap-6 p-8 w-full">
+                <router-view />
+            </div>
         </main>
     </div>
 </template>
