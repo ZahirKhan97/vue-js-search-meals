@@ -1,0 +1,14 @@
+<template>
+    <div class="bg-gray-100 h-full">
+        <Navbar />
+        <main class="container mx-auto flex items-center justify-between">
+            <router-view />
+        </main>
+    </div>
+</template>
+
+<script setup>
+import { RouterView } from 'vue-router';
+import Navbar from './Navbar.vue';
+
+</script>
