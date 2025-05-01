@@ -21,7 +21,7 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link :to="{ name: 'byIngredient' }"
+                    <router-link :to="{ name: 'ingredients' }"
                         class="px-2 h-full transition-colors hover:bg-purple-200 text-gray-700">
                         Meals by ingredients
                     </router-link>
