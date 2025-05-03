@@ -5,7 +5,7 @@
 
         <!-- Meal Info -->
         <div class="p-6">
-            <h1 class="text-3xl font-bold text-gray-800 mb-4">
+            <h1 class="text-3xl font-bold text-orange-500 mb-4">
                 {{ meal.strMeal }}
             </h1>
             <div class="grid grid-cols-3 gap-4 mt-4">

@@ -1,14 +1,15 @@
 <template>
+    <h1 class="text-3xl font-bold text-orange-500">
+        Search Meals by Name
+    </h1>
     <!-- Search Input -->
     <div class="w-full">
-        <input type="text" placeholder="Search for meals..." v-model="keyword" @change="searchMeals"
-            class="w-full px-4 py-3 rounded-lg border-2 bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm" />
+        <input type="text" placeholder="Search for Meals..." v-model="keyword" @change="searchMeals"
+            class="w-full px-4 py-3 rounded-lg border-2 bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 shadow-sm" />
     </div>
 
     <!-- Meals Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-        <MealsList :meals="meals"/>
-    </div>
+    <MealsList :meals="meals" />
 </template>
 
 <script setup>
@@ -22,7 +23,11 @@ const keyword = ref('');
 const meals = computed(() => store.state.searchedMeals)
 const route = useRoute()
 function searchMeals() {
-    store.dispatch('searchMeals', keyword.value)
+    if (keyword.value) {
+        store.dispatch('searchMeals', keyword.value)
+    } else {
+        store.commit('setSearchedMeals', [])
+    }
 }
 
 onMounted(() => {

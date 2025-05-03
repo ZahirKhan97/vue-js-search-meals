@@ -19,3 +19,10 @@ export function searchMealsByIngredient({commit}, ingredient) {
         commit('setMealsByIngredient', data.meals)
     })
 }
+
+export function searchRandomMeals({commit}) {
+    axiosClient.get(`filter.php?a=Canadian`)
+    .then(({data}) => {
+        commit('setRandomMeals', data.meals)
+    })
+}

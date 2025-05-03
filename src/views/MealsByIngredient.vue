@@ -1,8 +1,9 @@
 <template>
+     <h1 class="text-3xl font-bold text-orange-500">
+        Meals For {{ route.params.ingredient }}
+    </h1>
     <!-- Meals Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-        <MealsList :meals="meals" />
-    </div>
+    <MealsList :meals="meals" />
 </template>
 
 <script setup>
