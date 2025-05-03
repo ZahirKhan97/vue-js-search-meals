@@ -7,7 +7,7 @@
     </div>
     <!-- Meals Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-        <MealItem :meals="meals"/>
+        <MealsList :meals="meals"/>
     </div>
 </template>
 
@@ -15,16 +15,20 @@
 import { computed, onMounted, watch } from 'vue';
 import store from '../store';
 import { useRoute } from 'vue-router';
-import MealItem from '../components/MealItem.vue';
+import MealsList from '../components/MealsList.vue';
 
 const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const route = useRoute();
 const meals = computed(() => store.state.mealsByLetter)
 
 watch(route, () => {
-    store.dispatch('searchMealsByLetter', route.params.letter)
+    if (route.params.letter) {
+        store.dispatch('searchMealsByLetter', route.params.letter);
+    }
 })
-// onMounted(() => {
-//     store.dispatch('searchMealsByLetter', route.params.letter)
-// })
+onMounted(() => {
+    if (route.params.letter) {
+        store.dispatch('searchMealsByLetter', route.params.letter);
+    }
+})
 </script>

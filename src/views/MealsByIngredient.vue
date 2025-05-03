@@ -1,7 +1,7 @@
 <template>
     <!-- Meals Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-        <MealItem :meals="meals" />
+        <MealsList :meals="meals" />
     </div>
 </template>
 
@@ -9,7 +9,7 @@
 import { computed, onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import store from '../store';
-import MealItem from '../components/MealItem.vue';
+import MealsList from '../components/MealsList.vue';
 const meals = computed(() => store.state.mealsByIngredient)
 const route = useRoute();
 onMounted(() => {
